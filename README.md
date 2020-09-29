@@ -2,7 +2,7 @@
 It is a simple service which can find anagrams for loaded words.
 
 ## Requirements
-This service use `Postgre` as datavase, so you have to install it and setup `.env` file in project. Also you will nedd some packets for Golang:
+This service use `Postgre` as database, so you have to install it and setup `.env` file in project. Also you will need some packets for Golang:
 * `go get github.com/gorilla/mux` - Router for REST API
 * `go get github.com/joho/godotenv` - .env file support
 * `go get gorm.io/gorm` - ORM for Golang
@@ -20,6 +20,6 @@ Examples:
 * `curl localhost:8080/get?word=foobar`
 
 ## Main idea
-Main idea of service is to use hash index of postgre for fast search via words for possible anagrams. As anagrams are common in amount of the same letters, so for each words we count amount of each letter in it and save this data in string. For example: "a1b1c2d0e0..." (all other letters followed by zeroes) for "abcc".
+Main idea of service is to use hash index of `Postgre` for fast search via words for possible anagrams. As anagrams are common in amount of the same letters, so for each words we count amount of each letter in it and save this data in string. For example: `"a1b1c2d0e0..."` (all other letters followed by zeroes) for `"abcc"`.
 
-When we want to find anagrams we just search in hash index for the such string which was calculated for word in request.
+When we want to find anagrams we just search in hash index for such string which was calculated for word in request.
